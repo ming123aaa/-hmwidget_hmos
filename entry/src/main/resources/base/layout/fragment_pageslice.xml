@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+    <TabList
+        ohos:id="$+id:tab_list"
+        ohos:height="36vp"
+        ohos:width="match_parent"
+        ohos:background_element="#80000000"
+        ohos:layout_alignment="center"
+        ohos:normal_text_color="#FFFFFFFF"
+        ohos:orientation="horizontal"
+        ohos:selected_tab_indicator_color="#FF7DA0FF"
+        ohos:selected_tab_indicator_height="4vp"
+        ohos:selected_text_color="#FF7DA0FF"
+        ohos:tab_length="140vp"
+        ohos:tab_margin="24vp"
+        ohos:text_alignment="center"
+        ohos:text_size="20fp"
+        />
+
+    <PageSlider
+        ohos:id="$+id:page_slider"
+        ohos:height="match_parent"
+        ohos:width="match_parent"
+        />
+</DirectionalLayout>

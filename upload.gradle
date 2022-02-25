@@ -1,0 +1,80 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+def DEFAULT_POM_NAME = 'hmwidget'
+def DEFAULT_POM_VERSION = '1.0.2'  //har包版本信息
+def DEFAULT_POM_ARTIFACT_ID = "hmwidget"  //har包ID
+def DEFAULT_POM_GROUP_ID = 'io.gitee.a3077932030'  //项目组ID
+def DEFAULT_POM_PACKAGING = 'har'  //包类型，固定为har
+def DEFAULT_POM_DESCRIPTION = 'myLib for harmonyos'
+def MAVEN_USERNAME = ''   //远程Maven仓的用户名
+def MAVEN_PASSWORD = ''  //远程Maven仓的密码
+def LOCAL_MAVEN_REPOSITORY_URL = 'E:/0.maven'   //本地Maven仓地址
+def REMOTE_MAVEN_REPOSITORY_URL = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+//远程Maven仓地址
+
+
+afterEvaluate { project ->
+    DEFAULT_POM_ARTIFACT_ID = project.name
+    publishing {
+        publications {
+
+            maven(MavenPublication) {
+                from components.debug
+                group = DEFAULT_POM_GROUP_ID
+                artifactId = DEFAULT_POM_ARTIFACT_ID
+                version = DEFAULT_POM_VERSION
+                pom {
+                    name = DEFAULT_POM_NAME
+                    description = DEFAULT_POM_DESCRIPTION
+                    packaging = DEFAULT_POM_PACKAGING
+                    url ="https://gitee.com/a3077932030/hmwidget_hmos"
+                    licenses {
+                        license {
+                            name = "The Apache License, Version 2.0"
+                            url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = "3077932030"
+                            name = "gjm"
+                            email = "3077932030@qq.com"
+                            organization ="gitee"
+                            organizationUrl="https://gitee.com/a3077932030"
+                        }
+                    }
+                    scm {
+                        connection = "scm:git:https://gitee.com/a3077932030/hmwidget_hmos"
+                        developerConnection = "scm:git:https://gitee.com/a3077932030/hmwidget_hmos"
+                        url = "https://gitee.com/a3077932030/hmwidget_hmos"
+                    }
+                }
+
+            }
+        }
+        repositories {
+            maven {
+                url = LOCAL_MAVEN_REPOSITORY_URL  //发布到本地Maven仓
+                //发布到远程Maven仓的地址以及Maven仓的帐号和密码
+//                url = REMOTE_MAVEN_REPOSITORY_URL
+//                credentials {
+//                    username MAVEN_USERNAME
+//                    password MAVEN_PASSWORD
+//                }
+
+            }
+        }
+    }
+
+    signing {
+        sign publishing.publications.maven
+    }
+}
+
+
+
+
+
+
+

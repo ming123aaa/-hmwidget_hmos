@@ -1,0 +1,27 @@
+{
+  "app": {
+    "bundleName": "com.ohuang.android",
+    "vendor": "ohuang",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {
+  },
+  "module": {
+    "package": "com.ohuang.hmwidget",
+    "deviceType": [
+      "phone",
+      "tablet",
+      "tv",
+      "wearable",
+      "car"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "hmwidget",
+      "moduleType": "har"
+    }
+  }
+}
